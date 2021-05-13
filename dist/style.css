@@ -1,0 +1,445 @@
+/* reset rules */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+button:active,
+button:focus {
+  outline: none !important;
+}
+
+a,
+button,
+svg {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+path,
+line, 
+stroke,
+circle {
+    pointer-events: none;
+  }
+
+/* nav */
+
+header {
+  margin-bottom: 2rem;
+}
+
+nav,
+#expandedNav {
+  border-radius: 2px;
+}
+
+nav {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(252,61,74);
+}
+
+.nav__list,
+.expandedNav__list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  padding: .5rem;
+}
+
+.nav_svg_container {
+    width: 4rem;
+}
+
+#expandedNav {
+  background-color: rgb(248,110,56);
+  color: white;
+  height: 100%;
+  padding: .5rem;
+}
+
+#expandedNav li:hover {
+  padding: .25rem;
+  color: black;
+  background-color: rgb(255,254,108);
+}
+
+/* main */
+
+body {
+  background-color: rgb(253,241,213);
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* grid */
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 87%;
+}
+
+/* carousel */
+
+.carousel {
+  position: relative;
+  width: 80%;
+  height: 40%;
+  margin: 0 auto;
+}
+
+.carousel__photo-container {
+  position: relative;
+  transform-style: preserve-3d;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  transition: transform 350ms ease-in-out;
+  overflow: hidden;
+}
+
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.carousel__photo {
+  object-fit: cover;
+  opacity: 0;
+  position: absolute;
+  top:0;
+  z-index: 100;
+  transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+.carousel__photo.initial,
+.carousel__photo.active {
+  opacity: 1;
+  position: relative;
+  z-index: 900;
+}
+
+.carousel__photo.prev,
+.carousel__photo.next {
+  z-index: 800;
+}
+
+.carousel__photo.prev {
+  transform: translateX(-100%); 
+}
+
+.carousel__photo.next {
+  transform: translateX(100%); 
+}
+
+.carousel__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+}
+
+.carousel__button__arrow-svg {
+  width: 100%;
+}
+
+.carousel__button--next {
+  right: -1.87rem;
+}
+
+.carousel__button--prev {
+  left: -1.87rem;
+}
+
+.carousel__nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+.dots__svg {
+  width: 1.25rem;
+  margin: 0 .5rem;
+}
+
+.active circle {
+  fill: black;
+  opacity: .8;
+}
+
+/* form */
+
+.form__container {
+  width: 80%;
+  height: 90%;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+fieldset {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
+
+legend {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: .5rem;
+}
+
+legend,
+input,
+select,
+fieldset {
+  border: none;
+}
+
+input,
+.error.active {
+  border-radius: 3px;
+}
+
+input:not([type="checkbox"], [type="submit"]),
+select {
+  width: 15rem;
+  padding: .35rem;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: none !important;
+}
+
+input[type="submit"] {
+  width: 8rem;
+  padding: .5rem;
+  background-color: rgb(252,61,74);
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  transform: scale(1.2);
+}
+
+label {
+  padding: .25rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.error.active {
+  background-color: #000;
+  color: white;
+  padding: .25rem;
+  margin-top: .5rem;
+}
+
+input:invalid {
+  background-color: rgba(255,254,108, .7);
+}
+
+/* animation */
+
+li:hover:not(.carousel__slide) {
+  transform: scale(1.3);
+}
+
+.animateSVG:hover {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 1s linear forwards;
+}
+
+.roll-in-right { /* entrance icon */
+	animation: roll-in-right 0.1s ease-in both;
+}
+
+.roll-out-left { /* exit icon*/
+	animation: roll-out-left 0.1s ease-in both;
+}
+
+.swing-in-left-fwd { /* entrance extended nav */
+	animation: swing-in-left-fwd .6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+.swing-out-left-bck { /* exit extended nav*/
+	animation: swing-out-left-bck .6s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+}
+
+/* keyframes */
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2021-3-14 16:16:12
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+@keyframes roll-out-left {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-250px) rotate(-540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes roll-in-right {
+  0% {
+    transform: translateX(100px) rotate(540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes swing-in-left-fwd {
+  0% {
+    transform: rotateY(100deg);
+    transform-origin: left;
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0);
+    transform-origin: left;
+    opacity: 1;
+  }
+}
+
+@keyframes swing-out-left-bck {
+  0% {
+    transform: rotateY(0);
+    transform-origin: left;
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(100deg);
+    transform-origin: left;
+    opacity: 0;
+  }
+}
+
+/* media queries! */
+
+@media screen and (min-width: 1300px) { 
+  html {
+    font-size: 125%;
+  }
+
+  body {
+    grid-template-columns: 1fr 92%;
+    grid-template-rows: 1fr;
+  }
+
+  header {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  nav {
+    flex-flow: row nowrap;
+  }
+
+  .nav__list,
+  .expandedNav__list {
+  flex-flow: column nowrap;
+}
+
+  /* carousel */
+
+  .carousel {
+    width: 60%;
+    height: 70%;
+  }
+
+}
